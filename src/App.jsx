@@ -1,6 +1,7 @@
 import { useReducer } from 'react'
 import './App.css'
 
+// reducer
 const reducer = (state, action) => {
   // can destructure state and action
   switch (action.type) {
@@ -15,6 +16,14 @@ const reducer = (state, action) => {
     default:
       throw new Error()
   }
+}
+
+// actions object
+const ACTION = {
+  INCREMENT: 'increment',
+  DECREMENT: 'decrement',
+  NEW_USER_INPUT: 'newUserInput',
+  TOGGLE_COLOR: 'toggleColor',
 }
 
 function App() {
@@ -32,8 +41,8 @@ function App() {
   )
 
   const handleClick = ({ target: { name } }) => {
-    if (name === 'increment') dispatch({ type: name })
-    else dispatch({ type: name })
+    if (name === 'increment') dispatch({ type: ACTION.INCREMENT })
+    else dispatch({ type: ACTION.DECREMENT })
   }
 
   return (
@@ -60,7 +69,7 @@ function App() {
           -
         </button>
         <div>
-          <button onClick={() => dispatch({ type: 'toggleColor' })}>
+          <button onClick={() => dispatch({ type: ACTION.TOGGLE_COLOR })}>
             Toggle Color
           </button>
         </div>
