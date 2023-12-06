@@ -18,13 +18,18 @@ const reducer = (state, action) => {
 }
 
 function App() {
-  // state object, function to dispatch/send an action to alter state
-  // destructuring count, userInput and color from 'state' var
-  const [{ count, userInput, color }, dispatch] = useReducer(reducer, {
+  const initialState = {
     count: 0,
     userInput: '',
     color: false,
-  })
+  }
+
+  // state object, function to dispatch/send an action to alter state
+  // destructuring count, userInput and color from 'state' var
+  const [{ count, userInput, color }, dispatch] = useReducer(
+    reducer,
+    initialState
+  )
 
   const handleClick = ({ target: { name } }) => {
     if (name === 'increment') dispatch({ type: name })
